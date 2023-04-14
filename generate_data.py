@@ -4,18 +4,24 @@ import openai
 
 
 def generate_model_prompt_codes():
-    # generates the encoded version of the model prompts
+    # generates the encoded version of the model prompts and saves them to model_prompt_codes.txt
+    # see readme for the explanation of the encoding
     random.seed(0)
     out_file_name = "model_prompt_codes.txt"
     codes = []
     question_set = list(range(1, 66))
     for PP in range(1, 11):
+        # loop over prompts 1-10
         for XX in range(0, 11):
+            # look over X=0-10
             if XX == 0:
+                # if X=0, there are no false answers so we query exactly once
                 N_max = len(question_set)
             else:
+                # otherwise we query 100 times
                 N_max = 100
             for NNN in range(1, N_max+1):
+                # loop 100 times (for X>0)
                 if XX == 0:
                     question_codes = [question_set[NNN-1]]
                 else:
@@ -70,9 +76,10 @@ def swap_choices_in_question(question):
     return swapped_question
 
 
-def incorrect_answer(question, next_question_is_flipped):
+def incorrect_answer(question, question_is_flipped):
     # gives the incorrect answer to the question
-    if next_question_is_flipped:
+    # if question_is_flipped, the incorrect answer is first, otherwise it is the second choice
+    if question_is_flipped:
         question_where_correct_choice_is_first = swap_choices_in_question(
             question)
     else:
@@ -83,8 +90,8 @@ def incorrect_answer(question, next_question_is_flipped):
 
 
 def call_model_from_prompt_code(prompt_code):
+    # calls GPT 3.5 using the prompt given by prompt_code, and returns the model's answer
     messages = expand_prompt_code_to_messages(prompt_code)
-
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301", messages=messages, max_tokens=5, temperature=1)
     model_answer = completion["choices"][0]["message"]["content"]
@@ -92,6 +99,8 @@ def call_model_from_prompt_code(prompt_code):
 
 
 def generate_data():
+    # loops over all prompt codes, calls GPT on them, and saves it to data/model_prompt_codes_and_responses.txt
+    # saves as you go, and it will only call a prompt code if it doesn't already have an answer recorded
     with open('model_prompt_codes.txt', 'r') as f_in:
         queries = f_in.read().split("\n")
     with open('data/model_prompt_codes_and_responses.txt', 'r') as f_current:
