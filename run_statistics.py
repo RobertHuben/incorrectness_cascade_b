@@ -2,7 +2,6 @@ import numpy as np
 from score_data import count_categories, load_prompt_abbreviations
 import matplotlib.pyplot as plt
 import scipy.stats as stats
-import scipy.linalg
 import pymannkendall as mk
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
@@ -211,16 +210,16 @@ def test_bonus_2(x_first=0, x_second=1):
         print(f"Two-sample Welch's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
 
 
-
-# test_1()
-# test_2()
-# test_3()
-# print("\n")
-# test_4()
-# print("\n")
-# test_5()
-# test_6()
-# test_bonus_1()
-test_bonus_2(x_first=0, x_second=1)
-test_bonus_2(x_first=1, x_second=10)
-test_bonus_2(x_first=0, x_second=10)
+if __name__=="__main__":
+    test_1()
+    test_2()
+    test_3()
+    print("\n")
+    test_4()
+    print("\n")
+    test_5()
+    test_6()
+    test_bonus_1()
+    test_bonus_2(x_first=0, x_second=1)
+    test_bonus_2(x_first=1, x_second=10)
+    test_bonus_2(x_first=0, x_second=10)

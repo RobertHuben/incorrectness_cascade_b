@@ -101,8 +101,4 @@ def generate_data():
 
 if __name__=="__main__":
     # generate_model_prompt_codes()
-    # with open("model_prompt_codes.txt") as f:
-    #     prompt_codes=f.read().split('\n')
-    #     for prompt_code in prompt_codes:
-    #         expand_prompt_code_to_messages(prompt_code)
     generate_data()
