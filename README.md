@@ -15,7 +15,7 @@ Notes on prompt codes:
 
 A prompt code is a compressed form of a prompt that was passed to GPT to generate a single datum that was used to generate statistics. Each model call is encoded this way:
 
-'''PP.XX.NNN.(KK[ab]){XX+1}/R'''
+```PP.XX.NNN.(KK[ab]){XX+1}/R```
 
 - Each . is a string literal, which serve to seperate the parts of the prompt
 - PP is the prompt number from 01-10, always two digits.
