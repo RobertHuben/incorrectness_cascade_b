@@ -4,6 +4,7 @@ import re
 
 
 def load_prompt_abbreviations():
+    # short terms we use to refer to the prompts
     prompt_abbreviations=[
         "None",
         "Correctly",
@@ -19,7 +20,8 @@ def load_prompt_abbreviations():
     return prompt_abbreviations
 
 def write_misformatted():
-
+    # loops over all model answers in data/model_prompt_codes_and_responses.txt, and if it is misformatted, 
+    # it writes that answer to data/misformatted_responses.txt 
     mistakes=[]
     with open("input_data/boolean_statements.txt") as f_questions:
         boolean_statements=f_questions.read().split("\n")
@@ -42,6 +44,9 @@ def write_misformatted():
         f_out.write("\n".join(mistakes))
 
 def count_categories():
+    # loops over all model answers in data/model_prompt_codes_and_responses.txt, 
+    # and classifies them as correct/incorrect/misformatted
+    # returns a 4-10-by-11 list block, for total/correct/incorrect/misformatted   
     all_answers=[[0 for _ in range(11)] for __ in range(10)]
     correct_answers=[[0 for _ in range(11)] for __ in range(10)]
     incorrect_answers=[[0 for _ in range(11)] for __ in range(10)]
@@ -72,6 +77,7 @@ def count_categories():
     
 
 def plot_categories_heatmap():
+    # makes a picture of which (X,P) values have a large or small population
     data=np.array(count_categories())
     data=data/data[0]
     data=data[1:4]
@@ -99,6 +105,7 @@ def plot_categories_heatmap():
     plt.show()
 
 def plot_categories_line_graph(omit_incorrect_prompt=False):
+    # makes a line graph of y as a function of P and X
     data=np.array(count_categories())
     data=data[2]/(data[1]+data[2])
     # Create a figure and axis
@@ -131,6 +138,6 @@ def plot_categories_line_graph(omit_incorrect_prompt=False):
 
 if __name__=="__main__":
     # count_categories()
-    # plot_categories_heatmap()
+    plot_categories_heatmap()
     plot_categories_line_graph()
     plot_categories_line_graph(omit_incorrect_prompt=True)
