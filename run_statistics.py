@@ -9,27 +9,24 @@ import pandas as pd
 
 
 def load_y():
+    # loads the y data
     data = np.array(count_categories())
     YY = data[2]/(data[1]+data[2])
     return YY
 
 
 def load_n():
+    # loads the number of questions answered correctly/incorrectly (as opposed to misformatted)
     data = np.array(count_categories())
     NN = data[1]+data[2]
     return NN
 
 
 def preliminary_test_most_misformatted():
+    # says the highest concentration of misformatted answers
     data = np.array(count_categories())
     percent_misformatted = data[3]/data[0]
     print(np.max(percent_misformatted))
-
-
-def load_prompts():
-    with open("input_data/prompt_supplements.txt") as f_prompts:
-        prompts = f_prompts.read().split("\n")
-    return prompts
 
 
 def test_1():
@@ -170,6 +167,7 @@ def test_6():
 
 
 def graph_test_1(correlations, confidence_intervals):
+    # creates a graph showing the results of test 1
     prompts = np.arange(len(correlations))
     prompt_abbreviations = load_prompt_abbreviations()
 
@@ -204,6 +202,7 @@ def graph_test_1(correlations, confidence_intervals):
 
 
 def test_bonus_1():
+    # extra test not in the pre-registration, finding the coefficient on a linear regression of Y on X, for each value of P
     y_data = load_y()
     prompt_abbreviations = load_prompt_abbreviations()
 
@@ -221,7 +220,8 @@ def test_bonus_1():
 
 
 def test_bonus_2(x_first=0, x_second=1):
-    # "Across each prompt P, perform the two-sample Welch's t-test comparing X=0 and X=10."
+    # "As tests 3/4/5, but using a two-sample Welch's t-test instead of Student's t-test.
+    # Compares X=x_first and X=x_second."
     correct_answers = np.array(count_categories())[1]
     incorrect_answers = np.array(count_categories())[2]
 
