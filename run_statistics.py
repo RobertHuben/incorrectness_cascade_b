@@ -7,24 +7,28 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import pandas as pd
 
+
 def load_y():
-    data=np.array(count_categories())
-    YY=data[2]/(data[1]+data[2])
+    data = np.array(count_categories())
+    YY = data[2]/(data[1]+data[2])
     return YY
 
+
 def load_n():
-    data=np.array(count_categories())
-    NN=data[1]+data[2]
+    data = np.array(count_categories())
+    NN = data[1]+data[2]
     return NN
 
+
 def preliminary_test_most_misformatted():
-    data=np.array(count_categories())
-    percent_misformatted=data[3]/data[0]
+    data = np.array(count_categories())
+    percent_misformatted = data[3]/data[0]
     print(np.max(percent_misformatted))
+
 
 def load_prompts():
     with open("input_data/prompt_supplements.txt") as f_prompts:
-        prompts=f_prompts.read().split("\n")
+        prompts = f_prompts.read().split("\n")
     return prompts
 
 
@@ -32,13 +36,14 @@ def test_1():
     # "Across each prompt P, compute the correlation coefficient between Y and X."
     y_data = load_y()
     x_data = np.array(range(11))
-    prompt_abbreviations=load_prompt_abbreviations()
+    prompt_abbreviations = load_prompt_abbreviations()
 
     correlations = []
     confidence_intervals = []
     for p_idx in range(y_data.shape[0]):
         y_p = y_data[p_idx, :]
-        corr_coef = np.corrcoef(x_data, y_p)[0, 1]  # Get the correlation coefficient between x_data and y_p
+        # Get the correlation coefficient between x_data and y_p
+        corr_coef = np.corrcoef(x_data, y_p)[0, 1]
 
         # Compute the 95% confidence interval using Fisher's z-transformation
         z = np.arctanh(corr_coef)
@@ -55,8 +60,10 @@ def test_1():
     # Print the correlation coefficients and their 95% confidence intervals for each prompt
     print("Correlation coefficients for each prompt:")
     for p_idx, (corr_coef, conf_interval) in enumerate(zip(correlations, confidence_intervals)):
-        print(f"Prompt {prompt_abbreviations[p_idx]}: {corr_coef:.4f} (95% CI: {conf_interval[0]:.4f}, {conf_interval[1]:.4f})")
+        print(
+            f"Prompt {prompt_abbreviations[p_idx]}: {corr_coef:.4f} (95% CI: {conf_interval[0]:.4f}, {conf_interval[1]:.4f})")
     graph_test_1(correlations, confidence_intervals)
+
 
 def test_2():
     # "Across each prompt P, perform the Mann-Kendall test to see if Y is increasing as X ranges from 0 to 10."
@@ -71,52 +78,62 @@ def test_2():
         print(f"Mann-Kendall test for prompt {p_idx}: trend={mk_result.trend}, "
               f"slope={mk_result.slope:.3f}, p-value={mk_result.p:.4f}")
 
+
 def test_3():
     # "Across each prompt P, perform the two-sample student's t-test comparing X=0 and X=1."
     correct_answers = np.array(count_categories())[1]
     incorrect_answers = np.array(count_categories())[2]
-    x_first=0
-    x_second=1
+    x_first = 0
+    x_second = 1
 
     for p_idx in range(correct_answers.shape[0]):
-        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]),np.zeros(incorrect_answers[p_idx, x_first])))
-        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]),np.zeros(incorrect_answers[p_idx, x_second])))
+        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]), np.zeros(
+            incorrect_answers[p_idx, x_first])))
+        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]), np.zeros(
+            incorrect_answers[p_idx, x_second])))
         ttest_result = stats.ttest_ind(y_first, y_second)
 
         # Print the results of the two-sample Student's t-test for each prompt
-        print(f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
+        print(
+            f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
 
 
 def test_4():
     # "Across each prompt P, perform the two-sample student's t-test comparing X=1 and X=10."
     correct_answers = np.array(count_categories())[1]
     incorrect_answers = np.array(count_categories())[2]
-    x_first=1
-    x_second=10
+    x_first = 1
+    x_second = 10
 
     for p_idx in range(correct_answers.shape[0]):
-        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]),np.zeros(incorrect_answers[p_idx, x_first])))
-        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]),np.zeros(incorrect_answers[p_idx, x_second])))
+        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]), np.zeros(
+            incorrect_answers[p_idx, x_first])))
+        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]), np.zeros(
+            incorrect_answers[p_idx, x_second])))
         ttest_result = stats.ttest_ind(y_first, y_second)
 
         # Print the results of the two-sample Student's t-test for each prompt
-        print(f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
+        print(
+            f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
 
 
 def test_5():
     # "Across each prompt P, perform the two-sample student's t-test comparing X=0 and X=10."
     correct_answers = np.array(count_categories())[1]
     incorrect_answers = np.array(count_categories())[2]
-    x_first=0
-    x_second=10
+    x_first = 0
+    x_second = 10
 
     for p_idx in range(correct_answers.shape[0]):
-        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]),np.zeros(incorrect_answers[p_idx, x_first])))
-        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]),np.zeros(incorrect_answers[p_idx, x_second])))
+        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]), np.zeros(
+            incorrect_answers[p_idx, x_first])))
+        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]), np.zeros(
+            incorrect_answers[p_idx, x_second])))
         ttest_result = stats.ttest_ind(y_first, y_second)
 
         # Print the results of the two-sample Student's t-test for each prompt
-        print(f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
+        print(
+            f"Two-sample Student's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
 
 
 def test_6():
@@ -133,7 +150,8 @@ def test_6():
 
     # Create a dataset for the analysis
     data = pd.DataFrame({'Y': y_data.flatten(), 'X': np.tile(X, len(P))})
-    data = pd.concat([data, P_dummies.iloc[np.repeat(np.arange(len(P_dummies)), len(X))].reset_index(drop=True)], axis=1)
+    data = pd.concat([data, P_dummies.iloc[np.repeat(
+        np.arange(len(P_dummies)), len(X))].reset_index(drop=True)], axis=1)
 
     # Rename columns
     data.columns = ['Y', 'X', 'P_7', 'P_8', 'P_9']
@@ -144,22 +162,26 @@ def test_6():
     data['X_P_9'] = data['X'] * data['P_9']
 
     # Perform the multiple regression analysis
-    model = smf.ols('Y ~ X + P_7 + P_8 + P_9 + X_P_7 + X_P_8 + X_P_9', data=data).fit()
+    model = smf.ols(
+        'Y ~ X + P_7 + P_8 + P_9 + X_P_7 + X_P_8 + X_P_9', data=data).fit()
 
     # Print the results
     print(model.summary())
 
+
 def graph_test_1(correlations, confidence_intervals):
     prompts = np.arange(len(correlations))
-    prompt_abbreviations=load_prompt_abbreviations()
+    prompt_abbreviations = load_prompt_abbreviations()
 
     # Plot the correlation coefficients with their confidence intervals
     fig, ax = plt.subplots()
     ax.scatter(correlations, prompts, label='Correlation Coefficients')
 
     # Add error bars for the confidence intervals
-    xerr = np.array([[corr - lower, upper - corr] for (lower, upper), corr in zip(confidence_intervals, correlations)]).T
-    ax.errorbar(correlations, prompts, xerr=xerr, fmt='o', capsize=5, label='95% Confidence Intervals')
+    xerr = np.array([[corr - lower, upper - corr] for (lower, upper),
+                    corr in zip(confidence_intervals, correlations)]).T
+    ax.errorbar(correlations, prompts, xerr=xerr, fmt='o',
+                capsize=5, label='95% Confidence Intervals')
 
     # Add a vertical dotted line at x=0
     ax.axvline(0, linestyle='--', color='gray', alpha=0.6)
@@ -180,10 +202,10 @@ def graph_test_1(correlations, confidence_intervals):
     # Show the plot
     plt.show()
 
+
 def test_bonus_1():
     y_data = load_y()
-    prompt_abbreviations=load_prompt_abbreviations()
-
+    prompt_abbreviations = load_prompt_abbreviations()
 
     for p_idx in range(10):
         # Create a DataFrame for the variables (X and Y)
@@ -194,7 +216,9 @@ def test_bonus_1():
         model = smf.ols('Y ~ X', data=data).fit()
 
         # Print the results
-        print(f"X Coefficient for prompt {prompt_abbreviations[p_idx]}: {model.params.X:.3f} (p-value: {model.pvalues.X:.3f})")
+        print(
+            f"X Coefficient for prompt {prompt_abbreviations[p_idx]}: {model.params.X:.3f} (p-value: {model.pvalues.X:.3f})")
+
 
 def test_bonus_2(x_first=0, x_second=1):
     # "Across each prompt P, perform the two-sample Welch's t-test comparing X=0 and X=10."
@@ -202,15 +226,18 @@ def test_bonus_2(x_first=0, x_second=1):
     incorrect_answers = np.array(count_categories())[2]
 
     for p_idx in range(correct_answers.shape[0]):
-        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]),np.zeros(incorrect_answers[p_idx, x_first])))
-        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]),np.zeros(incorrect_answers[p_idx, x_second])))
+        y_first = np.concatenate((np.ones(correct_answers[p_idx, x_first]), np.zeros(
+            incorrect_answers[p_idx, x_first])))
+        y_second = np.concatenate((np.ones(correct_answers[p_idx, x_second]), np.zeros(
+            incorrect_answers[p_idx, x_second])))
         ttest_result = stats.ttest_ind(y_first, y_second, equal_var=False)
 
         # Print the results of the two-sample Student's t-test for each prompt
-        print(f"Two-sample Welch's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
+        print(
+            f"Two-sample Welch's t-test comparing X={x_first} and X={x_second} for prompt {p_idx+1}: statistic={ttest_result.statistic:.2f}, p-value={ttest_result.pvalue:.4f}")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     test_1()
     test_2()
     test_3()
