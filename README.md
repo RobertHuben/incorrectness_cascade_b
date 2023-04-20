@@ -1,8 +1,8 @@
-# incorrectness_cascade
+# incorrectness_cascade_b
 
-This code will generate and analyze data in order to study the hypothesis that a model that previously gives incorrect answers is more likely to give incorrect answers in the future (what I call an "incorrectness cascade").
+This is a modified version of my incorrectness cascade repo at https://github.com/RobertHuben/incorrectness_cascade. These modifications are aimed to study whether changing the question format from multiple choice to true/false changes the results I documented at https://aizi.substack.com/p/pre-registering-a-study.
 
-Study pre-registration: https://aizi.substack.com/p/pre-registering-a-study
+Study pre-registration: https://aizi.substack.com/p/study-1b-pre-registration
 
 To replicate this work:
 1. Install this repo

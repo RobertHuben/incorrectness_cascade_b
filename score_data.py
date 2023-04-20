@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import re
-
+from generate_data import expand_prompt_code_to_messages
 
 def load_prompt_abbreviations():
     # short terms we use to refer to the prompts
@@ -43,8 +43,8 @@ def write_misformatted():
     with open("data/misformatted_responses.txt", "a") as f_out:
         f_out.write("\n".join(mistakes))
 
-def count_categories():
-    # loops over all model answers in data/model_prompt_codes_and_responses.txt, 
+def count_categories_1a():
+    # loops over all model answers in data/model_prompt_codes_and_responses_1a.txt, 
     # and classifies them as correct/incorrect/misformatted
     # returns a 4-10-by-11 list block, for total/correct/incorrect/misformatted   
     all_answers=[[0 for _ in range(11)] for __ in range(10)]
@@ -53,7 +53,7 @@ def count_categories():
     misformatted_answers=[[0 for _ in range(11)] for __ in range(10)]
     with open("input_data/boolean_statements.txt") as f_questions:
         boolean_statements=f_questions.read().split("\n")
-    with open('data/model_prompt_codes_and_responses.txt', 'r') as f_data:
+    with open('data/model_prompt_codes_and_responses_1a.txt', 'r') as f_data:
         lines=f_data.read().split("\n")
     for line in lines:
         prompt_match=re.search(r"(\d{2}).(\d{2}).\d{3}.((\d{2}[a|b]){0,11})/[\n]?", line)
@@ -75,10 +75,44 @@ def count_categories():
             misformatted_answers[PP-1][XX]+=1
     return [all_answers, correct_answers, incorrect_answers, misformatted_answers]
     
+def count_categories_1b():
+    # loops over all model answers in data/model_prompt_codes_and_responses_1b.txt, 
+    # and classifies them as correct/incorrect/misformatted
+    # returns a 4-10-by-11 list block, for total/correct/incorrect/misformatted   
+    all_answers=[[0 for _ in range(11)] for __ in range(10)]
+    correct_answers=[[0 for _ in range(11)] for __ in range(10)]
+    incorrect_answers=[[0 for _ in range(11)] for __ in range(10)]
+    misformatted_answers=[[0 for _ in range(11)] for __ in range(10)]
+    with open("input_data/boolean_statements.txt") as f_questions:
+        boolean_statements=f_questions.read().split("\n")
+    with open('data/model_prompt_codes_and_responses_1b.txt', 'r') as f_data:
+        lines=f_data.read().split("\n")
+    for line in lines:
+        prompt_match=re.search(r"(\d{2}).(\d{2}).\d{3}.((\d{2}[a|b]){0,11})/[\n]?", line)
+        PP=int(prompt_match.group(1))
+        XX=int(prompt_match.group(2))
+        prompt_questions_code=prompt_match.group(3)
+        final_prompt_question=int(prompt_questions_code[-3:-1])
+        question=boolean_statements[final_prompt_question-1]
+        messages=expand_prompt_code_to_messages(prompt_match.group(0))
+        is_flipped=prompt_questions_code[-1]=="b"
+        correct_answer = str(not is_flipped).lower()
+        incorrect_answer = str(is_flipped).lower()
+        full_AI_answer=line.split("/")[1]
+        reduced_AI_answer=full_AI_answer.split(" ")[0].replace("\n","").replace(".", "").lower()
+        all_answers[PP-1][XX]+=1
+        if reduced_AI_answer==correct_answer:
+            correct_answers[PP-1][XX]+=1
+        elif reduced_AI_answer==incorrect_answer:
+            incorrect_answers[PP-1][XX]+=1
+        else:
+            misformatted_answers[PP-1][XX]+=1
+    return [all_answers, correct_answers, incorrect_answers, misformatted_answers]
+    
 
 def plot_categories_heatmap():
     # makes a picture of which (X,P) values have a large or small population
-    data=np.array(count_categories())
+    data=np.array(count_categories_1b())
     data=data/data[0]
     data=data[1:4]
     fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(10, 3))
@@ -106,7 +140,7 @@ def plot_categories_heatmap():
 
 def plot_categories_line_graph(omit_incorrect_prompt=False):
     # makes a line graph of y as a function of P and X
-    data=np.array(count_categories())
+    data=np.array(count_categories_1b())
     data=data[2]/(data[1]+data[2])
     # Create a figure and axis
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -137,7 +171,7 @@ def plot_categories_line_graph(omit_incorrect_prompt=False):
     plt.savefig(figure_title)
 
 if __name__=="__main__":
-    # count_categories()
-    plot_categories_heatmap()
+    # count_categories_1b()
+    # plot_categories_heatmap()
     plot_categories_line_graph()
     plot_categories_line_graph(omit_incorrect_prompt=True)

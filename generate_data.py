@@ -1,7 +1,7 @@
 import random
 import re
 import openai
-
+import os
 
 def generate_model_prompt_codes():
     # generates the encoded version of the model prompts and saves them to model_prompt_codes.txt
@@ -47,7 +47,7 @@ def expand_prompt_code_to_messages(prompt_code):
     with open("input_data/prompt_supplements.txt") as f:
         prompt_supplements = f.read().split("\n")
         prompt_supplement = prompt_supplements[prompt_supplement_number-1]
-        full_system_message = f"You are a question-answering AI. {prompt_supplement}Select one of the two words in parentheses to complete the sentence. Your answer should be a single word, and you should not say anything besides your single word answer. Example: 'Question: Alice prefers (cats/dogs) Answer: cats'."
+        full_system_message = f"You are a question-answering AI. {prompt_supplement}Rate each statement as True or False. Your answer should be a single word, and you should not say anything besides your single word answer. Example: 'Question: Alice prefers cats to dogs. Answer: True'."
         messages.append({"role": "system", "content": full_system_message})
     prompt_questions_code = prompt_match.group(2)
     while prompt_questions_code:
@@ -61,13 +61,19 @@ def expand_prompt_code_to_messages(prompt_code):
             next_question = boolean_statements[next_question_number-1]
             if next_question_is_flipped:
                 next_question = swap_choices_in_question(next_question)
-            messages.append({"role": "user", "content": next_question})
+            question_as_true_false=convert_choices_to_true_false(next_question)
+
+            messages.append({"role": "user", "content": question_as_true_false})
             if prompt_questions_code:
-                messages.append({"role": "system", "content": incorrect_answer(
-                    next_question, next_question_is_flipped)})
+                messages.append({"role": "system", "content": str(next_question_is_flipped)})
 
     return messages
 
+def convert_choices_to_true_false(question):
+    # takes in a question in choice format, and returns it as a true or false question with the first option
+    match = re.search("([\w ,']*)([(])(\w*)([/])(\w*)([)])([\w ]*\n?)", question)
+    converted_question = "".join([match.group(i) for i in [1, 3, 7]])
+    return converted_question
 
 def swap_choices_in_question(question):
     # takes in a question as a string, and swaps the string
@@ -101,16 +107,17 @@ def call_model_from_prompt_code(prompt_code):
 def generate_data():
     # loops over all prompt codes, calls GPT on them, and saves it to data/model_prompt_codes_and_responses.txt
     # saves as you go, and it will only call a prompt code if it doesn't already have an answer recorded
+    openai.api_key = os.environ["OPENAI_API_KEY"]
     with open('model_prompt_codes.txt', 'r') as f_in:
         queries = f_in.read().split("\n")
-    with open('data/model_prompt_codes_and_responses.txt', 'r') as f_current:
+    with open('data/model_prompt_codes_and_responses_1b.txt', 'r') as f_current:
         current_text = f_current.read()
     for query in queries:
         if query in current_text:
             continue
         else:
             model_response = call_model_from_prompt_code(query)
-            with open('data/model_prompt_codes_and_responses.txt', 'a') as f_out:
+            with open('data/model_prompt_codes_and_responses_1b.txt', 'a') as f_out:
                 f_out.write(f"{query}{model_response}\n")
             print(f"Just wrote prompt code {query}")
 
