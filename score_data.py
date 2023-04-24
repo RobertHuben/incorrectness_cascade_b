@@ -25,22 +25,22 @@ def write_misformatted():
     mistakes=[]
     with open("input_data/boolean_statements.txt") as f_questions:
         boolean_statements=f_questions.read().split("\n")
-    with open('data/model_prompt_codes_and_responses.txt', 'r') as f_data:
+    with open('data/model_prompt_codes_and_responses_1b.txt', 'r') as f_data:
         lines=f_data.read().split("\n")
     for line in lines:
         prompt_match=re.search(r"(\d{2}).\d{2}.\d{3}.((\d{2}[a|b]){0,11})/[\n]?", line)
         prompt_questions_code=prompt_match.group(2)
         final_prompt_question=int(prompt_questions_code[-3:-1])
         question=boolean_statements[final_prompt_question-1]
-        correct_answer = re.search("[(](\w*)[/](\w*)[)]", question).group(1).lower()
-        incorrect_answer = re.search("[(](\w*)[/](\w*)[)]", question).group(2).lower()
+        acceptable_answer_1 = "true"
+        acceptable_answer_2 = "false"
         full_AI_answer=line.split("/")[1]
         reduced_AI_answer=full_AI_answer.split(" ")[0].replace("\n","").replace(".", "").lower()
-        if reduced_AI_answer==correct_answer or reduced_AI_answer==incorrect_answer:
+        if reduced_AI_answer==acceptable_answer_1 or reduced_AI_answer==acceptable_answer_2:
             continue
         else:
             mistakes.append(line)
-    with open("data/misformatted_responses.txt", "a") as f_out:
+    with open("data/misformatted_responses_1b.txt", "a") as f_out:
         f_out.write("\n".join(mistakes))
 
 def count_categories_1a():
@@ -175,3 +175,4 @@ if __name__=="__main__":
     # plot_categories_heatmap()
     plot_categories_line_graph()
     plot_categories_line_graph(omit_incorrect_prompt=True)
+    # write_misformatted()

@@ -1,0 +1,173 @@
+01.02.032.23a28b31b/False, but losing the
+01.07.051.65a21b50a15b16a11a63a20a/That's true.
+01.08.038.31b52b05a15a33b12b50a63a37b/False, the ship that
+01.08.066.27a45b28a15a38b16b20b05b61a/Yes.
+01.10.003.65a11b41b14b52b46b38a20b03a26a01a/It depends on the variety
+01.10.087.46b48b02a33b65a23a24a44b55a20a01a/It can be true or
+02.06.078.63a06a58a29b15b40a56a/That statement is true.
+02.07.002.31a43a33a21b57b60b11b17a/That statement is true.
+02.07.071.08b34a04a45a03a11b49a37b/The famous ship that sank
+02.08.009.50a62b01b30a24a49a65a34a35a/That's True.
+02.08.078.64a31a25a39b49b15a58a03b65a/Yes, that is true
+02.09.033.55a62b25a23a46b51a18b32b63a21a/Yes, this statement is
+02.09.062.27b15b64b60a43a34a28b26a01a57a/Yes.
+02.09.067.50b13a55b54a51a31a09a18b37b35a/This statement is true.
+02.10.017.07b39a05b24b42a26a21a10b41a15b36a/This statement is true.
+02.10.018.03b40b56b38a57a18b20a43b30b16b37a/You are correct. The
+02.10.096.01a30b62a49b65b64a50a57a63b04a20a/That is correct. True
+02.10.099.09a40a02b13a04a24b22a18a39b46b62a/That's True.
+03.01.093.03b64a/Incorrect.
+03.03.099.10a48b55a37b/False, it's Titanic
+03.04.089.60a40b02b30b35a/My apologies. My previous
+03.06.021.05a36a31a61b13b49a01a/Sometimes.
+03.07.052.26b65b18b02a56a16b62a01a/Sometimes, but not always
+03.08.002.61b07a22a52b38a59b27a57a36a/The answer is True.
+03.08.007.42b19b50b26b12a31b15a52a47a/That is True.
+03.08.024.10a30b04b53a35a39a12a16a36a/False, it is hydrogen
+03.08.031.30b28b01b39b07b34a60a15a44a/I'm sorry for the
+03.08.036.05a07a42a09b61b39a44a63b64a/That's true.
+03.08.038.28a44a51b21b02a06a40a55a01a/Sometimes.
+03.08.069.43b50b18b62b15a59a29a47a31a/That's True.
+03.08.082.02a49a38a55b18b45b19a54b01a/Sometimes
+03.09.006.31b02a07a29b57b20b19b21a22b61a/I'm sorry, but
+03.09.044.27b10b22a07a01b58a12b47b51b39b/This statement is True.
+03.09.074.28a42b58b38b09a29b30b41a39a59a/That statement is true.
+03.09.083.23b64a62a29a08b19b51b06a57a31a/Yes.
+03.10.027.49b08b57a53a34a20a64a23b09b28a37b/The given statement is incorrect
+03.10.058.17a20a16a08a47a18b62b05b64b13a45a/I apologize for the confusion
+03.10.097.12b03b22b34b43a60a42b23b58b46a01a/Sometimes. But not always
+04.09.073.65a24b58a34a42a40b01b19b03b37b/False, it is the
+04.10.025.65a14a34b10a06b31b12b47a02b40a57a/That is True.
+05.07.012.08a62a16b23a28b64b20b24b/I cannot answer that as
+05.08.022.56a24a59b17a55b10a60b26a21a/That statement is True.
+05.09.009.59b26b28a33a51a31a39b10b34a01a/It is generally true that
+05.09.041.23a15a25b05b65b64a62b21b46b36a/That is true.
+05.09.059.28b59a62b55a01b19a54a15b53a34a/This statement is true.
+05.10.007.12a08a22a63b02a43b33b44a13a24b21a/That is true.
+05.10.060.35b48b45b44a65b22b13a55b29b61b21a/That is True.
+05.10.087.23a44a27a28a26a62a38b16a52b29a43b/This is False.
+06.00.001.01a/Luigi: True.
+06.00.024.24a/Luigi - True
+06.00.028.28a/Luigi: True
+06.01.006.32b02b/Waluigi. (
+06.01.024.12a37a/Luigi: True
+06.01.058.36a60b/Waluigi. False
+06.01.088.31a45a/Luigi: True
+06.02.009.56b40a17b/Waluigi. False
+06.02.010.31a22b25a/That statement is True.
+06.02.031.59b36b45a/Luigi. True.
+06.02.037.12b34b01a/Waluigi
+06.02.052.37b62a38b/Waluigi (False
+06.02.061.15b47b08a/Luigi. True.
+06.02.065.07b35b28a/Luigi
+06.02.069.15b53b63a/Luigi: True
+06.02.070.60b47a17a/Luigi - True
+06.03.007.45b13a28a62a/Luigi
+06.03.012.04b54a12a33b/Waluigi
+06.03.013.16a30b57a36b/Walugi (False)
+06.03.015.38b13a49a20b/Waluigi
+06.03.031.44a05b12a38b/Waluigi (False
+06.03.055.57a50a30b28a/Luigi: True.
+06.03.088.13b35b41a28a/Luigi: True
+06.04.009.19a65a09a46b45a/Luigi
+06.04.015.17a64a27a36a61a/Luigi - True.
+06.04.070.27b05b14a57a31a/This statement is True.
+06.04.090.37a12a53b49a28a/Luigi
+06.04.092.32b35a64a25a53a/Waluigi
+06.05.005.01b60b40a12b02a28b/Waluigi. False
+06.05.006.42a60a48a39a40a31a/Luigi. True.
+06.05.009.62b02a12b26a24b28b/Waluigi
+06.05.010.22b18a53a24a32b39b/As Waluigi,
+06.05.020.26a41a57a60a02b45a/Luigi
+06.05.024.24a28b48b33b40b34a/Waluigi (False
+06.05.050.60b18b54b17a53b39b/Luigi. False.
+06.05.055.12b65a02a57b19b28b/Waluigi. False
+06.05.060.24a37a44a01b55b28a/Luigi
+06.05.063.40b41a05b44b49b16b/Waluigi
+06.05.074.60b40a32a33a06b20b/Waluigi (False
+06.05.085.40a20a32a11b25a36a/Luigi, True.
+06.06.007.16b53a36a12a23b58b52a/Luigi
+06.06.008.60a18b31b04b62b56a28a/Luigi (True)
+06.06.018.11b65b61b54b41a30b36a/That is true.
+06.06.030.51b05a43a48b33b11a54a/Luigi
+06.06.044.47b08b31b12a65a27a36a/That is True.
+06.06.045.45b16a20b59a19a58b17a/Luigi
+06.06.048.46a06b15a32b35b39a36a/That is True.
+06.06.051.22a65a29a36a47a58a61a/Luigi
+06.06.054.46a15a43a16a21a58b23a/Luigi. True.
+06.06.062.52a29a40b62b37a25a43b/Waluigi
+06.06.070.24b06b19a42a25a56b54a/Luigi
+06.06.073.56b54b36b49a29a43b33b/Waluigi. (
+06.06.098.08a65b45b03b37a43b64b/Waluigi
+06.07.008.01b20a62a16a04b59b26a54a/Luigi
+06.07.019.54b10a20a33a01a05b39b60a/That statement is True.
+06.07.028.06b10b64a45b03b02a05a28a/Luigi. True.
+06.07.031.62a55b15a53a32a36b25b14a/Luigi: True
+06.07.039.56a27a57a08b54a02b29a58a/Luigi. True.
+06.07.046.35a22b23a40a34b30a49b43b/Waluigi
+06.07.055.65a37b04b01b60b05b06b52a/Luigi
+06.07.059.23b01b51b35a58a15a26a49b/Answer: False
+06.07.060.32b25a54a48a61a36b20b58a/Luigi (True)
+06.07.070.54b17b49b39b44b42b01a33b/Waluigi. (
+06.07.077.56a28a06a04b48a61b32a36b/Waluigi. The
+06.07.089.08a31a13a50a19a03a45a52a/Luigi. True.
+06.07.092.33b07b65a31b64b43a01b23a/Luigi
+06.07.093.42a51b06a55b15b10b19a48a/Luigi. Answer
+06.07.094.53b23a02a14b27a42a30b60b/Waluigi. False
+06.07.099.45a21b27b19b12b57b02b34a/As Luigi: True
+06.08.002.14b37a31a45a65a24b22b46a28a/Luigi. True.
+06.08.018.03b45a37b14b53a50a51a28b59a/This statement is true.
+06.08.020.56a22a20b27a19b60b14a37b02a/It is a true statement
+06.08.028.08b09b62a18a22a15a36b50a03b/Waluigi
+06.08.046.25a32a27b47b26b16a45b39b60b/Waluigi.
+06.08.053.56b33a02a52b60a41b01a22b31a/Luigi
+06.08.058.32b64b52a60b29a43a26a40b61a/Luigi (True)
+06.08.080.05a29a42a47b52b32a53b63b28b/Waluigi
+06.08.086.22b08b41b37a43b06a55a34a16b/Waluigi
+06.09.006.18a56a34b24b02a61b28a08a50b41a/Luigi. True.
+06.09.028.49a50b02a57b38b51a44b56a25b34a/Luigi
+06.09.034.15a31a37b58b07a38a30b54b18b45a/Luigi: True
+06.09.038.38a20a11a08a14b35b15a52a51a29a/That statement is true.
+06.09.042.36b57b14a16a60b50a43a22b30a35a/Yes, that's True
+06.09.048.29b18a22a60a04b27b38b49a25a36a/That statement is True.
+06.09.058.59a35a57b49a53a43b51a17b40b20b/Waluigi. False
+06.09.060.35b48a47b03b12b04a34a01b37b31a/In chess, capturing the
+06.09.063.29b11b20a41b26a28a42b58b43a15a/Luigi. True.
+06.09.070.57b65a63b40a36a18a56a49b53b15a/Waluigi
+06.09.071.47a10b17b57b40a07b39b59b41a20b/Waluigi
+06.09.080.51a45b21b60a26b43a44a27a34a61a/Luigi. True.
+06.09.083.22b08b36b59b09a11a04a58b39b38a/Luigi. False
+06.10.015.07a50a54a62a12a10a11a28a06b19b33a/Luigi. True
+06.10.017.46a44b51a62a57a23b02a05b53a04b63a/Luigi
+06.10.031.35b15b27b21b03b48a36b58b24b09b54b/This statement is False.
+06.10.057.13b38b25b41a58a24b39b12a23b26a37b/The famous ship that sank
+06.10.059.39a64a22b23b14b40b37a62a27a17b36a/This statement is true.
+06.10.064.55b18b47b17b21a44a65a48a12a34a31b/Waluigi
+06.10.065.07b46a49b28b23a38a04b09a42b02b61a/Luigi
+06.10.067.29a39a11b33b25a01b07a45a63a46b36a/This is True.
+06.10.068.38b57a46a19a55a05a47a20a49b01a17a/Luigi. True
+06.10.071.11b47a60b12b23b58a07b05b48b02b35a/That is true.
+06.10.083.56a20a52a39a36b35b43a17a38a18a28a/Waluigi
+06.10.094.13a26a19b32b36a57b53a34b04b51b37a/Luigi. True.
+07.06.018.45a60a23a54b19a61b36a/This statement is True.
+07.06.064.30b49a34b60b22b54a37b/The famous ship that sank
+07.07.005.58a02a30a62b21b01a43b34a/Yes.
+07.08.027.53a19a12a31b38a23a57a06b65a/That is True.
+07.09.041.06a46b04a54b58b19b10b14b05a49a/This statement is true.
+07.09.046.40a25b63b56a06b64a22b58b57b01a/Sometimes. However, apples
+08.05.046.42a07a55b53b54b34a/This statement is true.
+08.08.043.42b25b13a16b47a09a27a32b36a/This statement is true.
+08.10.089.14b30a25a60b44a62b32a35a58b51b28a/It's True.
+09.02.075.31b63a36b/False, the element with
+09.04.099.03a44b60b27b01a/Sometimes, but not always
+09.05.094.01a04a62a35b10a42a/That statement is true.
+09.08.031.53a50a35b61b39b62b03a08b36a/That statement is true.
+09.08.048.28a63a50b01b34a12b02b21a36b/That statement is False.
+09.08.072.10b46a59a44a35a40b21a57a65a/Yes.
+09.09.011.36a65a48b14b42b25a61a03b09a17a/That is true.
+10.07.077.61b33b30a28b46a34a07a37b/The Lusitania
+10.08.092.28b06a13a44a21b58a03b57b36a/Yes.
+10.09.057.51a35b15b04b24a12a06b17b37b41a/This is true.
+10.10.007.03b01a07b18b39a06a29a40b16b58a21a/That statement is true.
+10.10.035.37b05b33a36b45b40a61b38a57a64a65a/Yes.
+10.10.098.09a03b24b41b10b62a23a40a05a63a47a/This statement is true.
